@@ -3,7 +3,7 @@ use crate::node::Node;
 use simple_xml_serialize::XMLElement;
 
 
-/// Tree(leaves, /)
+/// Tree(leaves: list[str])
 /// --
 ///
 /// Classe représentant une arborescence, les noeuds ayant pour seule valeur une chaîne de caractère. 
@@ -35,11 +35,16 @@ impl Tree{
         Tree { data: nodes }
     }
 
+    /// decapsulate(self, lvl: int, i: int)
+    /// --
+    ///
     /// Méthode permettant de récupérer les feuilles auquel a accès le noeud spécifié (sous la forme d'une liste de noeuds).
-    /// 
-    /// # Paramètres :
-    /// * `lvl` - le niveau de l'arbre (coordonnée x)
-    /// * `i` - la position du noeud (coordonnée y)
+    /// :param lvl: le niveau de l'arbre (coordonnée x)
+    /// :type lvl: int
+    /// :param i: index du noeud dans le niveau
+    /// :type i: int
+    /// :return: la liste des feuilles
+    /// :rtype: list[Node]
     pub fn decapsulate(&self, lvl: usize, i: usize) -> PyResult<Vec<Node>>{
 
         let mut out = Vec::<Node>::new();
@@ -63,12 +68,19 @@ impl Tree{
         Ok(out)
     }
 
+    /// concat(self, lvl: int, i: int, sep: str)
+    /// --
+    /// 
     /// Méthode permettant de récupérer le texte des feuilles auquel le noeud a accès, avec possibilité d'un séparateur entre chaque.
     /// 
-    /// # Paramètres : 
-    /// * `lvl` - le niveau de l'arbre (coordonnée x)
-    /// * `i` - la position du noeud (coordonnée y)
-    /// * `sep` - le séparateur à poser entre chaque donnée de noeud
+    /// :param lvl: le niveau de l'arbre (coordonnée x)
+    /// :type lvl: int
+    /// :param i: la position du noeud (coordonnée y)
+    /// :type i: int
+    /// :param sep: le séparateur à utiliser
+    /// :type sep: str
+    /// :return: la chaîne résultante
+    /// :rtype: str
     pub fn concat(&self, lvl: usize, i: usize, sep: &str) -> PyResult<String>{
 
         let nodes = self.decapsulate(lvl, i).unwrap();
@@ -78,7 +90,17 @@ impl Tree{
         Ok(strs.join(sep))
     }
 
-
+    /// get_children(self, lvl: int, i: int)
+    /// --
+    /// 
+    /// Méthode permettant de récupérer les enfants du noeud.
+    ///
+    /// :param lvl: le niveau de l'arbre (coordonnée x)
+    /// :type lvl: int
+    /// :param i: la position du noeud (coordonnée y)
+    /// :type i: int
+    /// :return: la liste des noeuds enfants
+    /// :rtype: list[Node]
     pub fn get_children(&self, lvl: usize, i: usize) -> PyResult<Vec<Node>>{
 
         let root = self.data[lvl][i].clone();
@@ -93,7 +115,16 @@ impl Tree{
         Ok(children)
     }
 
-
+    /// subtree(self, lvl: int, i: int)
+    /// --
+    /// 
+    /// Permet de récupérer un sous-arbre sous la forme d'un objet Tree.
+    /// :param lvl: le niveau de l'arbre (coordonnée x)
+    /// :type lvl: int
+    /// :param i: la position du nouveau noeud racine (coordonnée y)
+    /// :type i: int
+    /// :return: le sous arbre partant du noeud spécifié
+    /// :rtype: Tree
     pub fn subtree(&self, lvl: usize, i: usize) -> PyResult<Tree>{
 
         //FIXME: données qui disparaissent + modifier les coordonnées de chaque noeud pour s'accorder avec le nouvel arbre
@@ -131,7 +162,13 @@ impl Tree{
         Ok(Tree{data: nodes})
     }
 
-
+    /// to_xml(self)
+    /// --
+    /// 
+    /// Méthode fournissant une chaîne de caractère décrivant l'arbre au format XML. Format d'export à privilégier.
+    /// 
+    /// :return: l'arbre structuré en XML
+    /// :rtype: str
     pub fn to_xml(&self) -> PyResult<String>{
         let mut root = XMLElement::new("test");
 

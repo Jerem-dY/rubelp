@@ -18,7 +18,7 @@ pub struct Node{
 impl Node{
 
     #[new]
-    pub fn new(txt: String, i: usize, lvl: usize) -> Self{
+    pub fn new(txt: String, lvl: usize, i: usize) -> Self{
         Node { 
             data: txt, 
             index: i, 
@@ -27,10 +27,16 @@ impl Node{
         }
     }
 
-    pub fn add_child(&mut self, child: &Node) -> PyResult<()>{
+}
+
+
+impl Node{
+
+    pub fn add_child(&mut self, child: &Node) -> Result<()>{
 
         self.children.push(child.index);
 
         Ok(())
     }
+
 }

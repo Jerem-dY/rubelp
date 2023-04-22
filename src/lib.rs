@@ -217,7 +217,7 @@ fn merge(ruleset: &HashMap<String, String>, array: Vec<&str>, window: usize) -> 
 
 
 #[pyfunction]
-fn mbr(tokens: Vec<String>, ruleset: HashMap<String, String>) -> PyResult<Tree>{
+fn engine(tokens: Vec<String>, ruleset: HashMap<String, String>) -> PyResult<Tree>{
 
 
     let (rules, split_rules, window) = split_rules(ruleset);
@@ -231,7 +231,7 @@ fn mbr(tokens: Vec<String>, ruleset: HashMap<String, String>) -> PyResult<Tree>{
     let mut cmptr = 1usize;
 
     for (i, leaf) in tokens.iter().enumerate(){
-        previous_level.push(Node::new(leaf.clone(), i, 0));
+        previous_level.push(Node::new(leaf.clone(), 0, i));
     }
 
     structure.push(previous_level.clone());
@@ -424,7 +424,7 @@ fn mbr_deprec(tokens: Vec<String>, ruleset: HashMap<String, String>) -> PyResult
 #[pymodule]
 fn mbr(_py: Python, m: &PyModule) -> PyResult<()> {
     m.add_function(wrap_pyfunction!(tokenize, m)?)?;
-    m.add_function(wrap_pyfunction!(mbr, m)?)?;
+    m.add_function(wrap_pyfunction!(engine, m)?)?;
     m.add_class::<Node>()?;
     m.add_class::<Tree>()?;
     Ok(())

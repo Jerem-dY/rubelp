@@ -149,7 +149,7 @@ impl Tree{
         let i = if self.data[level_size].len() > 0 { self.data[level_size].len()-1 } else { 0 };
         let lvl = level_size;
 
-        let mut new_node = Node::new(txt.clone(), i, lvl);
+        let mut new_node = Node::new(txt.clone(), lvl, i);
 
         // On récupère l'index de chaque enfant du nouveau noeud
         for child in children{

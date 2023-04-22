@@ -36,7 +36,6 @@ impl Tree{
     }
 
     /// decapsulate(self, lvl: int, i: int)
-    /// --
     ///
     /// Méthode permettant de récupérer les feuilles auquel a accès le noeud spécifié (sous la forme d'une liste de noeuds).
     /// :param lvl: le niveau de l'arbre (coordonnée x)
@@ -69,7 +68,6 @@ impl Tree{
     }
 
     /// concat(self, lvl: int, i: int, sep: str)
-    /// --
     /// 
     /// Méthode permettant de récupérer le texte des feuilles auquel le noeud a accès, avec possibilité d'un séparateur entre chaque.
     /// 
@@ -91,7 +89,6 @@ impl Tree{
     }
 
     /// get_children(self, lvl: int, i: int)
-    /// --
     /// 
     /// Méthode permettant de récupérer les enfants du noeud.
     ///
@@ -116,7 +113,6 @@ impl Tree{
     }
 
     /// subtree(self, lvl: int, i: int)
-    /// --
     /// 
     /// Permet de récupérer un sous-arbre sous la forme d'un objet Tree.
     /// :param lvl: le niveau de l'arbre (coordonnée x)
@@ -163,7 +159,6 @@ impl Tree{
     }
 
     /// to_xml(self)
-    /// --
     /// 
     /// Méthode fournissant une chaîne de caractère décrivant l'arbre au format XML. Format d'export à privilégier.
     /// 

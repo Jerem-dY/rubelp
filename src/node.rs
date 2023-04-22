@@ -1,5 +1,17 @@
 use pyo3::prelude::*;
 
+
+/// Node(txt: str, lvl: int, i: int)
+/// --
+///
+/// Classe représentant le noeud d'un arbre, avec pour valeur une chaîne de caractères.
+/// 
+/// :param txt: la valeur du noeud
+/// :type txt: str
+/// :param lvl: le niveau de l'arbre (coordonnée x)
+/// :type lvl: int
+/// :param i: la position du noeud (coordonnée y)
+/// :type i: int
 #[pyclass(module = "mbr", subclass, text_signature="(txt: str, i: int, lvl: int)")]
 #[derive(Clone)]
 #[derive(Debug)]

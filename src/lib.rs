@@ -17,10 +17,13 @@ enum TokenizeState{
 
 
 
-/// Fonction de tokenisation implémentant un transducteur en carré.
+/// tokenize(txt: str)
+/// --
 /// 
-/// # Paramètres :
-/// * `txt` - le texte à tokeniser (chaîne de caractères en utf-8)
+/// Fonction de tokenisation utilisant un transducteur à états finis.
+/// 
+/// :param txt: la chaîne de caractères à tokeniser
+/// :type txt: str
 #[pyfunction]
 fn tokenize(txt: &str) -> PyResult<Vec<String>>{
 
@@ -215,7 +218,17 @@ fn merge(ruleset: &HashMap<String, String>, array: Vec<&str>, window: usize) -> 
 }
 
 
-
+/// engine(tokens: list[str], ruleset: dict)
+/// --
+/// 
+/// Fonction faisant tourner le moteur à base de règles, à partir de tokens et d'un ensemble de règles.
+/// 
+/// :param tokens: la liste des tokens à traiter
+/// :type tokens: list[str]
+/// :param ruleset: la base de règles
+/// :type ruleset: dict
+/// :return: l'arbre résultant
+/// :rtype: Tree
 #[pyfunction]
 fn engine(tokens: Vec<String>, ruleset: HashMap<String, String>) -> PyResult<Tree>{
 
@@ -294,7 +307,7 @@ fn engine(tokens: Vec<String>, ruleset: HashMap<String, String>) -> PyResult<Tre
 
 
 
-
+/*
 /// Moteur à base de règles simple. Il applique les règles données en entrée sur une liste de tokens (chaînes de caractères).
 /// 
 /// # Paramètres :
@@ -356,8 +369,9 @@ fn mbr_previous(tokens: Vec<String>, ruleset: HashMap<String, String>) -> PyResu
 
     return Ok(tree);
 }
+*/
 
-
+/* 
 /// Moteur à base de règles simple. Il applique les règles données en entrée sur une liste de tokens (chaînes de caractères).
 /// 
 /// # Paramètres :
@@ -418,7 +432,7 @@ fn mbr_deprec(tokens: Vec<String>, ruleset: HashMap<String, String>) -> PyResult
 
     return Ok(out);
 }
-
+*/
 
 /// A Python module implemented in Rust.
 #[pymodule]

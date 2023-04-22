@@ -6,6 +6,9 @@
 Welcome to mbr's documentation!
 ===============================
 
+.. automodule:: mbr
+   :members:
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:

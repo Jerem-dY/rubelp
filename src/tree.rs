@@ -2,6 +2,15 @@ use pyo3::prelude::*;
 use crate::node::Node;
 use simple_xml_serialize::XMLElement;
 
+
+/// Tree(leaves, /)
+/// --
+///
+/// Classe représentant une arborescence, les noeuds ayant pour seule valeur une chaîne de caractère. 
+/// Le package utilise cette dernière pour garder une trace de chaque étape de transformation.
+/// 
+/// :param leaves: les feuilles de l'arbre
+/// :type leaves: list[str]
 #[pyclass(module = "mbr", subclass, text_signature="(leaves: list[str])")]
 #[derive(Debug)]
 pub struct Tree{

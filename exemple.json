@@ -1,0 +1,25 @@
+{
+	/*Ceci est un essai de commentaire long*/
+	"name" : "test",
+	"author" : "JeremdY",
+	"step" : 0,
+	
+	// Champ contenant toutes les règles 
+	"ruleset":{
+		"std":{
+			"les" : "DET",
+			"le" : "DET",
+			"un" : {
+				"uppercase" : "beginning"
+			},
+			"ram" : {
+				"uppercase" : "all"
+			},
+			"//truc" : "BIDULE"
+		},
+		"expr" : {
+			"%aient" : "VERB",
+			"[.?!]" : "SPUNCT"
+		}
+	}
+}

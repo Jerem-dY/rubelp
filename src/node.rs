@@ -32,11 +32,11 @@ impl Node{
 
 impl Node{
 
-    pub fn add_child(&mut self, child: &Node) -> Result<()>{
+    pub fn add_child(&mut self, child: &Node) -> (){
 
         self.children.push(child.index);
 
-        Ok(())
+        ()
     }
 
 }

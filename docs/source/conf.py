@@ -6,7 +6,7 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'mbr'
+project = 'rubelp'
 copyright = '2023, Jérémy Bourdillat'
 author = 'Jérémy Bourdillat'
 

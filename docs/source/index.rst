@@ -3,10 +3,10 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to mbr's documentation!
+Welcome to rubelp's documentation!
 ===============================
 
-.. automodule:: mbr
+.. automodule:: rubelp
    :members:
 
 .. toctree::

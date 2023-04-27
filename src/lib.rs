@@ -436,7 +436,7 @@ fn mbr_deprec(tokens: Vec<String>, ruleset: HashMap<String, String>) -> PyResult
 
 /// A Python module implemented in Rust.
 #[pymodule]
-fn mbr(_py: Python, m: &PyModule) -> PyResult<()> {
+fn rubelp(_py: Python, m: &PyModule) -> PyResult<()> {
     m.add_function(wrap_pyfunction!(tokenize, m)?)?;
     m.add_function(wrap_pyfunction!(engine, m)?)?;
     m.add_class::<Node>()?;

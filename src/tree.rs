@@ -11,7 +11,7 @@ use simple_xml_serialize::XMLElement;
 /// 
 /// :param leaves: les feuilles de l'arbre
 /// :type leaves: list[str]
-#[pyclass(module = "mbr", subclass, text_signature="(leaves: list[str])")]
+#[pyclass(module = "rubelp", subclass, text_signature="(leaves: list[str])")]
 #[derive(Debug)]
 pub struct Tree{
     #[pyo3(get)]

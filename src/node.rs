@@ -12,7 +12,7 @@ use pyo3::prelude::*;
 /// :type lvl: int
 /// :param i: la position du noeud (coordonnée y)
 /// :type i: int
-#[pyclass(module = "mbr", subclass, text_signature="(txt: str, i: int, lvl: int)")]
+#[pyclass(module = "rubelp", subclass, text_signature="(txt: str, i: int, lvl: int)")]
 #[derive(Clone)]
 #[derive(Debug)]
 pub struct Node{
